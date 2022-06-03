@@ -4,7 +4,7 @@ import './App.css';
 import Counters from './components/counters';
 
 class App extends Component {
-  state = { 
+  state = {
         counters: [
             {id: 1, value: 0, selected: true},
             {id: 2, value: 0, selected: true},
