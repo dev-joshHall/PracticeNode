@@ -11,6 +11,7 @@ const server = http.createServer( async (req, res) => {
         res.end("About page");
     }
     else {
+        console.log("error");
         res.end("Error 404: page not found");
     }
 } )

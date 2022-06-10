@@ -5,7 +5,7 @@ const NavBar = (props) => {
         <nav className="navbar bg-light">
             <div className="container-fluid">
                 <a className="navbar-brand">
-                    Cart{" "}
+                    Item Count{" "}
                     <span className="badge badge-pill badge-secondary">
                         {props.totalCounters}
                     </span>
