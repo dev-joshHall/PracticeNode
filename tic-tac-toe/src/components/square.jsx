@@ -7,6 +7,7 @@ const Square = (props) => {
         onClick={() => {
           props.onPlayMove(props.keyName);
         }}
+        disabled={props.winner ? true : false}
       >
         {props.squareVal}
       </button>

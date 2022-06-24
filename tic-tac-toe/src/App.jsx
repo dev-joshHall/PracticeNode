@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Title from "./components/title";
 import Board from "./components/ttt-board";
 
 class App extends Component {
@@ -14,10 +15,26 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Board buttons={this.state.buttons} onPlayMove={this.playMove} />
+        <Title />
+        <Board
+          winner={this.state.winner}
+          buttons={this.state.buttons}
+          onPlayMove={this.playMove}
+          clearBoard={this.clearBoard}
+        />
       </React.Fragment>
     );
   }
+
+  clearBoard = () => {
+    let buttons = [...this.state.buttons];
+    buttons = [...Array(9).keys()].map((x) => {
+      return { key: x + 1, val: " ", color: "normal" };
+    });
+    this.setState({ buttons });
+    this.setState({ winner: "" });
+    this.setState({ turn: "O" });
+  };
 
   playMove = (squareKey) => {
     console.log("Playing " + this.state.turn + " for square " + squareKey);
@@ -37,7 +54,6 @@ class App extends Component {
     const btnVals = this.state.buttons.map((x) => {
       return x.val;
     });
-    console.log(btnVals);
     // complete all checks for each symbol
     for (const sym of ["X", "O"]) {
       // check for horizontal wins

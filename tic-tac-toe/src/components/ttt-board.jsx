@@ -4,6 +4,7 @@ import Square from "./square";
 const Board = (props) => {
   return (
     <div className="board">
+      <br />
       {props.buttons.map((x) => {
         if (x.key < 4) {
           return (
@@ -12,6 +13,7 @@ const Board = (props) => {
               keyName={x.key}
               squareVal={x.val}
               onPlayMove={props.onPlayMove}
+              winner={props.winner}
             ></Square>
           );
         }
@@ -26,6 +28,7 @@ const Board = (props) => {
               keyName={x.key}
               squareVal={x.val}
               onPlayMove={props.onPlayMove}
+              winner={props.winner}
             ></Square>
           );
         }
@@ -40,11 +43,16 @@ const Board = (props) => {
               keyName={x.key}
               squareVal={x.val}
               onPlayMove={props.onPlayMove}
+              winner={props.winner}
             ></Square>
           );
         }
         return null;
       })}
+      <br />
+      <button className="btn btn-info m-4" onClick={props.clearBoard}>
+        Reset
+      </button>
     </div>
   );
 };
